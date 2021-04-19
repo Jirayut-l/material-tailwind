@@ -1,14 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom'
 import reportWebVitals from './reportWebVitals';
+import {CssBaseline, MuiThemeProvider} from '@material-ui/core';
+import theme from './common/theme'
+import AdminLayout from './layouts/Admin';
+import AuthLayout from './layouts/Auth';
+
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <MuiThemeProvider theme={theme}>
+        <CssBaseline/>
+        <BrowserRouter>
+            <Switch>
+                <Route path="/admin" render={() => <AdminLayout/>}/>
+                <Route path="/auth" render={() => <AuthLayout/>}/>
+                <Redirect from="/" to="/admin"/>
+            </Switch>
+        </BrowserRouter>
+    </MuiThemeProvider>,
+    document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom'
 import reportWebVitals from './reportWebVitals';
 import {CssBaseline, MuiThemeProvider} from '@material-ui/core';
-import theme from './common/theme'
+import theme from './assets/common/theme'
 import AdminLayout from './layouts/Admin';
 import AuthLayout from './layouts/Auth';
 
@@ -15,7 +15,7 @@ ReactDOM.render(
             <Switch>
                 <Route path="/admin" render={() => <AdminLayout/>}/>
                 <Route path="/auth" render={() => <AuthLayout/>}/>
-                <Redirect from="/" to="/admin"/>
+                <Redirect from="/" to="/admin/index"/>
             </Switch>
         </BrowserRouter>
     </MuiThemeProvider>,

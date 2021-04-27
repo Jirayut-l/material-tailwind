@@ -1,7 +1,7 @@
 import React from 'react';
 import {routes} from '../routes';
 import {Route, Switch, Redirect} from 'react-router-dom';
-import {Box, Link,Typography, Theme} from '@material-ui/core'
+import {Box, Link, Typography, Theme} from '@material-ui/core'
 import {makeStyles} from '@material-ui/core/styles';
 
 const getRoutes = () => {
@@ -16,6 +16,7 @@ const getRoutes = () => {
         }
     });
 };
+
 const useStyles = makeStyles((theme: Theme) => ({
     link: {
         alignSelf: 'flex-end',
@@ -29,14 +30,14 @@ const useStyles = makeStyles((theme: Theme) => ({
     }
 }));
 const CreateLinks = () => {
-    const  {link}= useStyles();
+    const {link} = useStyles();
     return (
         <>
             {routes.map((props, key) => (
                 <Typography className={link}>
-                <Link href={props.layout + props.path}  key={key}>
-                    {`.${props.name}`}
-                </Link>
+                    <Link href={props.layout + props.path} key={key}>
+                        {`.${props.name}`}
+                    </Link>
                 </Typography>
             ))};
         </>
